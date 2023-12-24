@@ -27,6 +27,12 @@ def index(request):
     category = Category.objects.all()
     slider = Slider.objects.all()
 
+    micro = Product.objects.filter(plan = 'Micro Business Plan').order_by('-id')[0:5]
+    small = Product.objects.filter(plan = 'Small Business Plan').order_by('-id')[0:5]
+    medium = Product.objects.filter(plan = 'Medium Business Plan').order_by('-id')[0:5]
+    aditionl = Product.objects.filter(plan = 'Aditional Products').order_by('-id')[0:5]
+
+
     products_slider = Product.objects.all().order_by('id')[:4]  #first 4 products
     products_latest = Product.objects.all().order_by('-id')[:4]  # last 4 products
     products_picked = Product.objects.all().order_by('?')[:4]   #Random selected 4 products
@@ -42,6 +48,11 @@ def index(request):
         'products_picked':products_picked,
         'products_slider':products_slider,
         'products_latest':products_latest,
+
+        'micro':micro,
+        'small':small,
+        'medium':medium,
+        'aditionl':aditionl,
     }
 
     return render(request,'index.html',context)
@@ -167,7 +178,7 @@ def product_detail(request,id,slug):
                         'variant': variant,'query': query
                         })
     
-    return render(request,'product_detail1.html',context)
+    return render(request,'product_detail.html',context)
 
 
 def ajaxcolor(request):

@@ -16,53 +16,21 @@
             <!-- section title -->
 
             <!-- Product Single -->
-            <div class="col-md-3 col-sm-6 col-xs-6">
-                <div class="product product-single">
-                    <div class="product-thumb">
-                        <button class="main-btn quick-view"><i class="fa fa-search-plus"></i> Quick view</button>
-                        <img src="{% static '' %}img/product01.jpg" alt="">
-                    </div>
-                    <div class="product-body">
-                        <h3 class="product-price">$32.50</h3>
-                        <div class="product-rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-o empty"></i>
-                        </div>
-                        <h2 class="product-name"><a href="#">Product Name Goes Here</a></h2>
-                        <div class="product-btns">
-                            <button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
-                            <button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
-                            <button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- /Product Single -->
 
-            <!-- Product Single -->
+            {% for rs in micro %}
             <div class="col-md-3 col-sm-6 col-xs-6">
                 <div class="product product-single">
                     <div class="product-thumb">
                         <div class="product-label">
-                            <span>New</span>
-                            <span class="sale">-20%</span>
+                            <span>₹ {{rs.m_price}}</span>
+                            <span class="sale">Months</span>
                         </div>
                         <button class="main-btn quick-view"><i class="fa fa-search-plus"></i> Quick view</button>
-                        <img src="{% static '' %}img/product02.jpg" alt="">
+                        <img src="{{rs.image.url}}" style="height: 135px; width: 135px; text-align:center; margin-left: 80px;" alt="">
                     </div>
                     <div class="product-body">
-                        <h3 class="product-price">$32.50 <del class="product-old-price">$45.00</del></h3>
-                        <div class="product-rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-o empty"></i>
-                        </div>
-                        <h2 class="product-name"><a href="#">Product Name Goes Here</a></h2>
+                        <h3 class="product-price">₹ {{rs.amount}}</h3>                        
+                        <h3 class="product-name"><a href="/product/{{ rs.id }}/{{ rs.slug }}">{{rs.title}}</a></h3>
                         <div class="product-btns">
                             <button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
                             <button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
@@ -72,67 +40,8 @@
                 </div>
             </div>
             <!-- /Product Single -->
-
-            <!-- Product Single -->
-            <div class="col-md-3 col-sm-6 col-xs-6">
-                <div class="product product-single">
-                    <div class="product-thumb">
-                        <div class="product-label">
-                            <span>New</span>
-                            <span class="sale">-20%</span>
-                        </div>
-                        <button class="main-btn quick-view"><i class="fa fa-search-plus"></i> Quick view</button>
-                        <img src="{% static '' %}img/product03.jpg" alt="">
-                    </div>
-                    <div class="product-body">
-                        <h3 class="product-price">$32.50 <del class="product-old-price">$45.00</del></h3>
-                        <div class="product-rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-o empty"></i>
-                        </div>
-                        <h2 class="product-name"><a href="#">Product Name Goes Here</a></h2>
-                        <div class="product-btns">
-                            <button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
-                            <button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
-                            <button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- /Product Single -->
-
-            <!-- Product Single -->
-            <div class="col-md-3 col-sm-6 col-xs-6">
-                <div class="product product-single">
-                    <div class="product-thumb">
-                        <div class="product-label">
-                            <span>New</span>
-                        </div>
-                        <button class="main-btn quick-view"><i class="fa fa-search-plus"></i> Quick view</button>
-                        <img src="{% static '' %}img/product04.jpg" alt="">
-                    </div>
-                    <div class="product-body">
-                        <h3 class="product-price">$32.50</h3>
-                        <div class="product-rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-o empty"></i>
-                        </div>
-                        <h2 class="product-name"><a href="#">Product Name Goes Here</a></h2>
-                        <div class="product-btns">
-                            <button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
-                            <button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
-                            <button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- /Product Single -->
+            {% endfor %}
+           
         </div>        
 </div>
 <!-- /section -->
@@ -157,65 +66,48 @@
             <!-- banner -->
             <div class="col-md-3 col-sm-6 col-xs-6">
                 <div class="banner banner-2">
-                    <img src="{% static '' %}img/unnamed.png" style="height: 420px;" alt="">
-                    <div class="banner-caption">
-                        <h3 class="white-color">1GB Memory<br><br>10GB Disk</h3>
-         
-                    </div>
+                    <img src="{% static '' %}img/google-cloud-img.jpg" style="height: 350px;" alt="">
+                    
                 </div>
             </div>
             <!-- /banner -->
 
-           <!-- Product Slick -->
-           <div class="col-md-9 col-sm-6 col-xs-6">
-            <div class="row">
-                
-                <div id="product-slick-1" class="product-slick">
-                    <!-- Product Single -->
-                    {% for rs in products_latest %}
-                    <div class="product product-single">
-                        <div class="product-thumb">
-                            <div class="product-label">
-                                <span>{{rs.duration}}</span>
-                                <span class="sale">-20%</span>
-                            </div>
+            <!-- Product Slick -->
+            <div class="col-md-9 col-sm-6 col-xs-6">
+                <div class="row">
+                    <div id="product-slick-1" class="product-slick">
 
-                            <button class="main-btn quick-view"><i class="fa fa-search-plus"></i> Quick view</button>
-                            <img src="{{rs.image.url}}" style="height: 275px;" alt="">
-                        </div>
-                        <h3 class="product-name"><a href="#">{{rs.title}}</a></h3>
-                        <div class="product-body">
-                            <h4 class="product-price">₹{{rs.m_price}} <del class="product-old-price">₹45.00</del></h4>
-                            <br>
-                            <h4 class="product-price">₹{{rs.amount}} <del class="product-old-price">₹45.00</del></h4>
-                            <div class="product-rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star-o empty"></i>
+                        {% for rs in small %}
+                        <!-- Product Single -->
+                        <div class="product product-single">
+                            <div class="product-thumb">
+                                <div class="product-label">
+                                    <span>₹ {{rs.m_price}}</span>
+                                    <span class="sale">Months</span>
+                                </div>                                                            
+                                <button class="main-btn quick-view"><i class="fa fa-search-plus"></i> Quick view</button>
+                                <img src="{{rs.image.url}}" style="height: 135px; width: 135px; text-align:center; margin-left: 80px;"  alt="">
                             </div>
-                            
-                            <div class="product-btns">
-
-                                <button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
+                            <div class="product-body">
+                                <h3 class="product-price" >₹ {{rs.amount}}<del class="product-old-price"></del></h3>
+                               
+                                <h2 class="product-name"><a href="#">{{rs.title}}</a></h2>
+                                <div class="product-btns">
+                                    <button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
+                                    <button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
+                                    <button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
+                                </div>
                             </div>
                         </div>
+                        <!-- /Product Single -->
+                        {% endfor %}
                     </div>
-                    {% endfor %}
-                    <!-- /Product Single -->
-
                 </div>
             </div>
-            </div>
-
-
             <!-- /Product Slick -->
         </div>
         <!-- /row -->
 
-      
-        <!-- /row -->
     </div>
     <!-- /container -->
 </div>
@@ -234,25 +126,23 @@
                 </div>
             </div>
             <!-- section title -->
-            {% for rs in products_latest %}
+            {% for rs in medium %}
             <!-- Product Single -->
             <div class="col-md-3 col-sm-6 col-xs-6">
                 <div class="product product-single">
                     <div class="product-thumb">
+                        <div class="product-label">
+                            <span>₹ {{rs.m_price}}</span>
+                            <span class="sale">Months</span>
+                        </div>
                         <a href="/product/{{ rs.id }}/{{ rs.slug }}">
                         <button class="main-btn quick-view"><i class="fa fa-search-plus"></i> Quick view</button>
                         </a>
-                        <img src="{{ rs.image.url }}" style="height: 175px; width: 175px; text-align:center; margin-left: 40px;" alt="">
+                        <img src="{{ rs.image.url }}" style="height: 135px; width: 135px; text-align:center; margin-left: 80px;" alt="">
                     </div>
                     <div class="product-body">
-                        <h3 class="product-price">$32.50</h3>
-                        <div class="product-rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-o empty"></i>
-                        </div>
+                        <h3 class="product-price">₹ {{rs.amount}}</h3>
+                        
                         <h2 class="product-name"><a href="/product/{{ rs.id }}/{{ rs.slug }}">{{rs.title}}</a></h2>
                         <div class="product-btns">
                             <button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
@@ -269,6 +159,55 @@
         </div>
         <!-- /row -->
 
+    </div>
+    <!-- /container -->
+</div>
+<!-- /section -->
+
+<!-- section -->
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <!-- section title -->
+            <div class="col-md-12">
+                <div class="section-title">
+                    <h3 class="title">Aditional Products</h3>
+                </div>
+            </div>
+            <!-- section title -->
+
+
+            <!-- Product Single -->
+
+            {% for rs in aditionl %}
+            <div class="col-md-3 col-sm-6 col-xs-6">
+                <div class="product product-single">
+                    <div class="product-thumb">
+                        <div class="product-label">
+                            <span>₹ {{rs.m_price}}</span>
+                            <span class="sale">Months</span>
+                        </div>
+                        <button class="main-btn quick-view"><i class="fa fa-search-plus"></i> Quick view</button>
+                        <img src="{{ rs.image.url }}" style="height: 135px; width: 135px; text-align:center; margin-left: 80px;" alt="">
+
+                    </div>
+                    <div class="product-body">
+                        <h3 class="product-price">₹ {{rs.amount}}</h3>                      
+                        <h2 class="product-name"><a href="/product/{{ rs.id }}/{{ rs.slug }}">{{rs.title}}</a></h2>
+                        <div class="product-btns">
+                            <button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
+                            <button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
+                            <button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            <!-- /Product Single -->
+        </div>
+        <!-- /row -->
     </div>
     <!-- /container -->
 </div>

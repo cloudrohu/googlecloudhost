@@ -45,12 +45,12 @@
 						</div>
 						<div id="product-view">
 							<div class="product-view">
-								<img src="{{product.image.url}}" alt=""style="height: 150px;">
+								<img src="{{product.image.url}}" alt="" style="height: 120px;">
 							</div>
 
 							{% for rs in images %}
 							<div class="product-view">
-								<img src="{{rs.image.url}}" alt=""style="height: 150px;">
+								<img src="{{rs.image.url}}" alt="" style="height: 120px;">
 							</div>
                             {% endfor %}
 							
@@ -59,11 +59,11 @@
 					<div class="col-md-6">
 						<div class="product-body">
 							<div class="product-label">
-								<span>New</span>
-								<span class="sale">-20%</span>
+								<span>₹ {{product.m_price}}</span>
+								<span class="sale">Months</span>
 							</div>
 							<h2 class="product-name">{{ product.title }}</h2>
-							<h3 class="product-price">${{ product.price }} <del class="product-old-price">$45.00</del></h3>
+							<h3 class="product-price">₹ {{ product.amount }} </h3>
 							<div>
 								<div class="product-rating">
 									<i class="fa fa-star"></i>
