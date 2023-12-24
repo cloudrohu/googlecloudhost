@@ -18,9 +18,9 @@ from user.models import UserProfile
 def index(request):
     category = Category.objects.all()
     current_user = request.user  # Access User Session information
-    profile = UserProfile.objects.get(user_id=current_user.id)
+
     context = {'category': category,
-               'profile':profile}
+               }
     return render(request,'user_profile.html',context)
 
 def login_form(request):
@@ -31,8 +31,7 @@ def login_form(request):
         if user is not None:
             login(request, user)
             current_user =request.user
-            userprofile=UserProfile.objects.get(user_id=current_user.id)
-            request.session['userimage'] = userprofile.image.url
+
             #*** Multi Langugae
             #request.session[translation.LANGUAGE_SESSION_KEY] = userprofile.language.code
             #request.session['currency'] = userprofile.currency.code

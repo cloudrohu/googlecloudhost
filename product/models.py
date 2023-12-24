@@ -71,15 +71,12 @@ class Product(models.Model):
         ('False', 'False'),
     )
 
-    MEMORY = (
-        ('1GB MEMORY', '1GB MEMORY'),
-        ('2GB MEMORY', '2GB MEMORY'),
-        ('3GB MEMORY', '3GB MEMORY'),
-        ('4GB MEMORY', '4GB MEMORY'),
-        ('6GB MEMORY', '6GB MEMORY'),
-        ('8GB MEMORY', '8GB MEMORY'),
-        ('12GB MEMORY', '12GB MEMORY'),
-        ('16GB MEMORY', '16GB MEMORY'),
+    PLAN = (
+        ('Micro Business Plan', 'Micro Business Plan'),
+        ('Small Business Plan', 'Small Business Plan'),
+        ('Medium Business Plan', 'Medium Business Plan'),
+        ('Aditional Products', 'Aditional Products'),
+
         
     )
 
@@ -95,15 +92,12 @@ class Product(models.Model):
     title = models.CharField(max_length=150)
     keywords = models.CharField(max_length=255)
     description = models.TextField(max_length=255)
-    duration = models.ForeignKey(Duration, on_delete=models.CASCADE) #many to one relation with Brand
-
     image=models.ImageField(upload_to='images/',null=False)
-    m_price = models.IntegerField(null=True)
+    m_price = models.IntegerField(default=0,null=True)
     amount=models.IntegerField(default=0)   
-    discount = models.IntegerField(null=True)
-
+    discount = models.IntegerField(default=0,null=True)
     variant=models.CharField(max_length=25,choices=VARIANTS, default='None')
-    memory=models.CharField(max_length=25,choices=MEMORY, default='None')
+    plan=models.CharField(max_length=25,choices=PLAN, default='None')
     detail=RichTextUploadingField()
     slug = models.SlugField(null=False, unique=True)
     status=models.CharField(max_length=10,choices=STATUS)
@@ -112,8 +106,7 @@ class Product(models.Model):
     def __str__(self):
         return self.title
 
-
-    ## method to create a fake table field in read only mode
+    # method to create a fake table field in read only mode
     def image_tag(self):
         if self.image.url is not None:
             return mark_safe('<img src="{}" height="50"/>'.format(self.image.url))
