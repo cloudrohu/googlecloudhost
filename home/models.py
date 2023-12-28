@@ -33,6 +33,10 @@ class Setting(models.Model):
     youtube = models.CharField(blank=True, max_length=50)
     aboutus = RichTextUploadingField(blank=True)
     contact = RichTextUploadingField(blank=True)
+    privacy_policy = RichTextUploadingField(blank=True)
+    terms_and_conditions = RichTextUploadingField(blank=True)
+    cancellation_and_refund = RichTextUploadingField(blank=True)
+    shipping_and_delivery = RichTextUploadingField(blank=True)
     references = RichTextUploadingField(blank=True)
     status=models.CharField(max_length=10,choices=STATUS)
     create_at=models.DateTimeField(auto_now_add=True)
@@ -40,8 +44,6 @@ class Setting(models.Model):
 
     def __str__(self):
         return self.title
-
-
 
 class ContactMessage(models.Model):
     STATUS = (
@@ -61,8 +63,7 @@ class ContactMessage(models.Model):
 
     def __str__(self):
         return self.name
-    
-
+  
 
 class ContactForm(ModelForm):
     class Meta:
@@ -74,7 +75,6 @@ class ContactForm(ModelForm):
             'email'   : TextInput(attrs={'class': 'input','placeholder':'Email Address'}),
             'message' : Textarea(attrs={'class': 'input','placeholder':'Your Message','rows':'5'}),
         }
-
 
 class FAQ(models.Model):
     STATUS = (
@@ -91,7 +91,6 @@ class FAQ(models.Model):
 
     def __str__(self):
         return self.question
-
 
 class Slider(models.Model):
     STATUS = (
