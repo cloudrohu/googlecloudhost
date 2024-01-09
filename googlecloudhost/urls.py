@@ -39,6 +39,7 @@ urlpatterns = [
     path(('contact/'), views.contactus, name='contactus'),
     path('search/', views.search, name='search'),
     path('search_auto/', views.search_auto, name='search_auto'),
+    path('pay/', OrderViews.pay, name='pay'),
 
     
     

@@ -68,29 +68,16 @@
 							<p><strong>Availability:</strong> In Stock</p>
 							
 							<p>{{ product.title }}</p>
-							<div class="product-options">
-								<ul class="size-option">
-									<li><span class="text-uppercase"><h5>Location:</5></span></li>									
-									<li><a href="#">USA</a></li>
-									<li><a href="#">India</a></li>
-								</ul>
-								<ul class="size-option">
-									<li><span class="text-uppercase"><h5>Duration:</h5></span></li>									
-									<li><a href="#">12 Months</a></li>
-									<li><a href="#">24 Months</a></li>
-									<li><a href="#">36 Months</a></li>
-								</ul>
-								
-							</div>
+							
 
 							<div class="product-btns">
-								<form action="/order/addtoshopcart/{{ product.id }}" method="post"  id="addchart-form">
+								<form action="{% url "pay" %}" method="post"  id="addchart-form">
 									{% csrf_token %}
 								<div class="qty-input">
 									<span class="text-uppercase">QTY: </span>
 									<input class="input" name="quantity" type="number" value="1" min="1" max="{{product.amount}}">
 								</div>
-								<button type="submit" class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
+								<button type="submit" class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Pay Now</button>
 								</form>
 								<div class="pull-right">
 									<button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>

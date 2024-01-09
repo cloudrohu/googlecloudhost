@@ -57,7 +57,6 @@ def index(request):
 
     return render(request,'index.html',context)
 
-
 def aboutus(request):
     #category = categoryTree(0,'',currentlang)
     setting = Setting.objects.get()
@@ -105,8 +104,6 @@ def category_products(request,id,slug):
              'category':category }
     return render(request,'category_products.html',context)
 
-
-
 def search(request):
     if request.method == 'POST': # check post
         form = SearchForm(request.POST)
@@ -126,7 +123,6 @@ def search(request):
 
     return HttpResponseRedirect('/')
 
-
 def search_auto(request):
     if request.is_ajax():
         q = request.GET.get('term', '')
@@ -142,7 +138,6 @@ def search_auto(request):
         data = 'fail'
     mimetype = 'application/json'
     return HttpResponse(data, mimetype)
-
 
 def product_detail(request,id,slug):
     query = request.GET.get('q')
@@ -180,7 +175,6 @@ def product_detail(request,id,slug):
     
     return render(request,'product_detail.html',context)
 
-
 def ajaxcolor(request):
     data = {}
     if request.POST.get('action') == 'post':
@@ -196,8 +190,7 @@ def ajaxcolor(request):
         return JsonResponse(data)
     return JsonResponse(data)
 
-
-
 def faq(request):
    
     return render(request, 'faq.html')
+

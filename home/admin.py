@@ -14,6 +14,7 @@ class ContactMessageAdmin(admin.ModelAdmin):
 
 admin.site.register(Setting,SettingtAdmin)
 admin.site.register(Slider,)
+admin.site.register(Pay,)
 
 
 admin.site.register(ContactMessage,ContactMessageAdmin)

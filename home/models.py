@@ -63,7 +63,7 @@ class ContactMessage(models.Model):
 
     def __str__(self):
         return self.name
-  
+
 
 class ContactForm(ModelForm):
     class Meta:
@@ -97,12 +97,15 @@ class Slider(models.Model):
         ('True', 'True'),
         ('False', 'False'),
     )
-
     title = models.CharField(max_length=200)
     image=models.ImageField(upload_to='images/',null=False)
-
-
     def __str__(self):
         return self.title
 
+class Pay(models.Model):
+    
+    title = models.CharField(max_length=200)
+    image=models.ImageField(upload_to='images/',null=False)
+    def __str__(self):
+        return self.title
 

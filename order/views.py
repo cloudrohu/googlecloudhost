@@ -9,10 +9,21 @@ from django.utils.crypto import get_random_string
 from order.models import ShopCart, ShopCartForm, OrderForm, Order, OrderProduct
 from product.models import Category, Product, Variants
 from user.models import UserProfile
+from home.models import Pay
 
 
 def index(request):
     return HttpResponse ("Order Page")
+
+def pay(request):
+    #category = categoryTree(0,'',currentlang)
+
+    pay = Pay.objects.all()    
+    context={
+        'pay':pay
+    }
+ 
+    return render(request, 'pay.html',context)
 
 @login_required(login_url='/login') # Check login
 def addtoshopcart(request,id):
