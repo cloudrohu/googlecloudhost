@@ -9,7 +9,7 @@ from django.utils.crypto import get_random_string
 from order.models import ShopCart, ShopCartForm, OrderForm, Order, OrderProduct
 from product.models import Category, Product, Variants
 from user.models import UserProfile
-from home.models import Pay
+from home.models import Pay,Gallrey
 
 
 def index(request):
@@ -19,8 +19,10 @@ def pay(request):
     #category = categoryTree(0,'',currentlang)
 
     pay = Pay.objects.all()    
+    gallrey = Gallrey.objects.all()    
     context={
-        'pay':pay
+        'pay':pay,
+        'gallrey':gallrey,
     }
  
     return render(request, 'pay.html',context)
